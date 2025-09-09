@@ -9,6 +9,6 @@ file=$1
 
 while read -r line
 do
-	python3 /mnt/md0/mosquito_analysis/json_reader_5.3.py $(echo ${line} $file)
+	python3 json_reader_5.3.py $(echo ${line} $file)
 	
 done< ${file}
