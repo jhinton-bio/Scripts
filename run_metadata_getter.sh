@@ -2,7 +2,7 @@
 
 #this script runs the python metadata json parser.
 
-#json assembly stats and accession numbers delimited by spaces
+#json assembly reports and accession numbers delimited by spaces
 file=$1
 
 #run python script looping through that file
