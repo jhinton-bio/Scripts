@@ -1,3 +1,11 @@
+library(topGO)
+library(org.Ag.eg.db)
+library(rrvgo)
+
+# Reads in the mapping of the genes to the GO TERMS, used in the GO_Analysis function as g2go
+geneID2GO <- readMappings("FILE")
+
+# Labels the specified genes in file "x" from the gene universe "geneNames" and stores them in a factor
 make_GO <- function(x, geneNames){
   genes <- read.table(x, header = F)
   genes <- genes$V1
@@ -6,9 +14,12 @@ make_GO <- function(x, geneNames){
   return(gl)
 }
 
+#QOL function to quickly edit names in rrvgo
 capFirst <- function(s) {
     paste(toupper(substring(s, 1, 1)), substring(s, 2), sep = "")
 }
+
+#Function to run GO analysis using the perviously generated factor and the GO term mapping
 
 GO_Analysis <- function(genes, g2go){
   GO_data <- new("topGOdata", 
@@ -33,6 +44,7 @@ GO_Analysis <- function(genes, g2go){
   return(allRes)
 }
 
+# Reduces terms from the GO Analysis so that they can be made into treemaps
 termReducer <- function(allRes){
   allRes$classicFisher <- gsub("<", "", allRes$classicFisher)
   allRes$classicFisher <- as.numeric(allRes$classicFisher)
