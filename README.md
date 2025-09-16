@@ -1,2 +1,3 @@
 # Scripts
-Scripts for project work
+
+Scripts that I used for bioinformatic work
