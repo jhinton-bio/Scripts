@@ -226,7 +226,7 @@ line += "\n"
 #Write to tsv file if needed
 #append = input("Append to metadata file? (y/n)")
 
-#temprary yes
+#temporary yes
 append = "y"
 
 if append == "y":
@@ -240,3 +240,4 @@ if append == "y":
     outfile.close()
 
 f.close()
+
